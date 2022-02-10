@@ -1,0 +1,36 @@
+#!/bin/sh
+
+mkdir -p "/rootfs${HOST_ROOT}/bin"
+mkdir -p "/rootfs${HOST_ROOT}/data"
+
+# Copy fresh teleport binary to host if needed
+if ! sha1sum <"/rootfs${HOST_ROOT}/bin/teleport" -c /teleport.sha1; then
+  cp /teleport "/rootfs${HOST_ROOT}/bin/teleport"
+fi
+
+# Create default config file if host doesn't have one
+if [ ! -f "/rootfs${HOST_ROOT}/config.yml" ]; then
+  echo "No config file found, generating one..."
+
+  if [ -z "${INIT_TOKEN}" ]; then
+    echo "INIT_TOKEN variable is not found! Please set it in the environment!"
+    echo "Exiting..."
+    sleep 3
+    exit 1
+  fi
+
+  if [ -z "${INIT_AUTH_SERVER}" ]; then
+    echo "INIT_AUTH_SERVER variable is not found! Please set it in the environment!"
+    echo "Exiting..."
+    sleep 3
+    exit 1
+  fi
+
+  # Just like envsubst, but for busybox
+  eval "echo \"$(cat /config.yml.template)\"" >"/rootfs${HOST_ROOT}/config.yml"
+
+  # Start the node with the token
+  exec chroot /rootfs "${HOST_ROOT}/bin/teleport" start -r node "--token=${INIT_TOKEN}" -c "${HOST_ROOT}/config.yml"
+fi
+
+exec chroot /rootfs "${HOST_ROOT}/bin/teleport" start -r node -c "${HOST_ROOT}/config.yml"

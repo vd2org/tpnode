@@ -1,0 +1,11 @@
+version: v2
+
+# More information available at:
+# https://goteleport.com/docs/setup/reference/config/
+
+teleport:
+    data_dir: ${HOST_ROOT}/data
+    auth_servers:
+        - "${INIT_AUTH_SERVER}"
+    log:
+        output: stderr
