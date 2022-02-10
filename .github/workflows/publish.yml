@@ -37,4 +37,4 @@ jobs:
           docker buildx create --name local-build
           docker buildx use local-build
 
-          docker buildx b --platform $PLATFORMS --build-arg APP_VERSION=$APP_VERSION -t $IMAGE --load .
+          docker buildx b --platform $PLATFORMS --build-arg APP_VERSION=$APP_VERSION -t $IMAGE --push .

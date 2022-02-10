@@ -25,7 +25,7 @@ docker run -d --name tpnode \
   -e "HOST_ROOT=/opt/tpnode" \
   -e "INIT_AUTH_SERVER=teleport.example.com:443" \
   -e "INIT_TOKEN=1f806ce5fbc65af2c187ffb1c793c430" \
-  ghcr.io/vd2org/tpnode:8.2.0
+  ghcr.io/vd2org/tpnode:8.2.0_1
 ```
 
 ### Starting with using docker compose
