@@ -1,11 +1,9 @@
-name: TEST
+name: PUBLISH
 
 on:
   push:
-    branches:
-      - 'master'
-  pull_request:
-    ~
+    tags:
+      - '*'
 
 jobs:
   build:
