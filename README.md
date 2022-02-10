@@ -12,6 +12,10 @@ Default root path is /opt/tpnode with can be adjusted by setting `HOST_ROOT` var
 * linux/amd64
 * linux/arm64
 
+### Available versions
+
+[Here](https://github.com/users/vd2org/packages/container/package/tpnode)
+
 ### Starting with just using docker
 
 ```shell
@@ -31,7 +35,7 @@ docker run -d --name tpnode \
 ### Starting with using docker compose
 
 ```shell
-curl https://raw.githubusercontent.com/vd2org/tpnode/8.2.0_1/docker-compose.yml
+curl https://raw.githubusercontent.com/vd2org/tpnode/8.2.0_1/compose.yml -o compose.yml
 VERSION=8.2.0_1 INIT_TOKEN=1f806ce5fbc65af2c187ffb1c793c430 INIT_AUTH_SERVER=teleport.example.com:443 docker compose up
 ```
 
