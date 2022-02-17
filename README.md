@@ -35,8 +35,8 @@ docker run -d --name tpnode \
 ### Starting with using docker compose
 
 ```shell
-curl https://raw.githubusercontent.com/vd2org/tpnode/8.3.0_0/compose.yml -o compose.yml
-INIT_TOKEN=1f806ce5fbc65af2c187ffb1c793c430 INIT_AUTH_SERVER=teleport.example.com:443 docker compose up
+curl https://raw.githubusercontent.com/vd2org/tpnode/8.3.0_0/compose.yml |
+INIT_TOKEN=1f806ce5fbc65af2c187ffb1c793c430 INIT_AUTH_SERVER=teleport.example.com:443 docker compose -f - up
 ```
 
 ### Starting with using docker stack
