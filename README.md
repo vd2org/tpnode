@@ -29,13 +29,13 @@ docker run -d --name tpnode \
   -e "HOST_ROOT=/opt/tpnode" \
   -e "INIT_AUTH_SERVER=teleport.example.com:443" \
   -e "INIT_TOKEN=1f806ce5fbc65af2c187ffb1c793c430" \
-  ghcr.io/vd2org/tpnode:8.3.3_0
+  ghcr.io/vd2org/tpnode:9.0.3_0
 ```
 
 ### Starting with using docker compose
 
 ```shell
-curl https://raw.githubusercontent.com/vd2org/tpnode/8.3.3_0/compose.yml |
+curl https://raw.githubusercontent.com/vd2org/tpnode/9.0.3_0/compose.yml |
 INIT_TOKEN=1f806ce5fbc65af2c187ffb1c793c430 INIT_AUTH_SERVER=teleport.example.com:443 docker compose -f - up
 ```
 
