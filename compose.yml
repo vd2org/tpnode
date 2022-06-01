@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   tpnode:
-    image: ghcr.io/vd2org/tpnode:9.0.3_0
+    image: ghcr.io/vd2org/tpnode:9.3.2_0
     deploy:
       mode: global
       update_config:
