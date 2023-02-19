@@ -39,6 +39,12 @@ curl https://raw.githubusercontent.com/vd2org/tpnode/9.3.6_0/compose.yml |
 INIT_TOKEN=1f806ce5fbc65af2c187ffb1c793c430 INIT_AUTH_SERVER=teleport.example.com:443 docker compose -f - up
 ```
 
+### Upgrading existing image
+
+```shell
+curl https://raw.githubusercontent.com/vd2org/tpnode/9.3.6_0/compose.yml | docker compose -f - up
+```
+
 ### Starting with using docker stack
 
 _Will be done later..._
