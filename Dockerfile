@@ -24,13 +24,14 @@ WORKDIR /build
 RUN curl https://get.gravitational.com/teleport-v${APP_VERSION}-$(cat /platform)-bin.tar.gz -o teleport.tar.gz
 RUN tar xfz teleport.tar.gz teleport/teleport
 
+RUN < /build/teleport/teleport sha1sum > /build/teleport/teleport.sha1
+
 RUN teleport/teleport version
 
 FROM busybox
 
 COPY --from=build /build/teleport/teleport /teleport
-
-RUN < /teleport sha1sum > /teleport.sha1
+COPY --from=build /build/teleport/teleport.sha1 /teleport.sha1
 
 COPY config.yml.template /config.yml.template
 
