@@ -30,6 +30,8 @@ FROM busybox
 
 COPY --from=build /build/teleport/teleport /teleport
 
+RUN < /teleport sha1sum > /teleport.sha1
+
 COPY config.yml.template /config.yml.template
 
 COPY run /run
