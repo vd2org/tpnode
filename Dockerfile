@@ -21,7 +21,7 @@ RUN apt-get install -y curl
 # Download the teleport binary
 RUN mkdir -p /build
 WORKDIR /build
-RUN curl https://get.gravitational.com/teleport-v${APP_VERSION}-$(cat /platform)-bin.tar.gz -o teleport.tar.gz
+RUN curl https://cdn.teleport.dev/teleport-v${APP_VERSION}-$(cat /platform)-bin.tar.gz -o teleport.tar.gz
 RUN tar xfz teleport.tar.gz teleport/teleport
 
 RUN < /build/teleport/teleport sha1sum > /build/teleport/teleport.sha1
